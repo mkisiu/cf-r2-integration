@@ -26,7 +26,7 @@ func main() {
 	// list objects in the bucket
 	keys, err := r2Client.ListObjects(ctx, "")
 	if err != nil {
-		log.Fatal("R2: ListObjects error: %v", err)
+		log.Fatalf("R2: ListObjects error: %v", err)
 	}
 
 	// show received list of objects (keys)
