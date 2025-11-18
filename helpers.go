@@ -2,6 +2,9 @@ package main
 
 import (
 	"fmt"
+	"os"
+
+	"github.com/mkisiu/cloudflare-r2-go"
 )
 
 // maskSecret - helper, masks sensitive data
@@ -21,4 +24,13 @@ func showConfig() {
 	fmt.Printf("  AccessKey: %s\n", cfg.AccessKey)
 	fmt.Printf("  Bucket:    %s\n", cfg.Bucket)
 	fmt.Printf("  SecretKey: %s...\n", maskSecret(cfg.SecretKey))
+}
+
+// saveObject - saves the downloaded object to disk
+func saveObject(obj *r2.ObjectResponse, fileName string) error {
+	if err := os.WriteFile(fileName, obj.Data, 0644); err != nil {
+		return err
+	}
+
+	return nil
 }

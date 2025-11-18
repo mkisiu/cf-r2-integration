@@ -1,6 +1,8 @@
 module github.com/mkisiu/cf-r2-integration
 
-go 1.25.4
+go 1.24.3
+
+require github.com/mkisiu/cloudflare-r2-go v0.0.0-20251118082004-2abab2076bd7
 
 require (
 	github.com/aws/aws-sdk-go-v2 v1.39.6 // indirect
